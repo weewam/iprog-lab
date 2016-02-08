@@ -1,0 +1,30 @@
+body {
+
+}
+
+#mainPage {
+	background-image: url(../images/cooking.jpg);
+}
+
+.page-header {
+	opacity: 0.9;
+	background-color: white;
+	padding-left: 15px;
+	padding-top: 3px;
+	margin-top: 0%;
+}
+
+#mainPage_Jumbotron {
+	margin-top: 15%;
+	width: 50%;
+	opacity: 0.9;
+	padding: 2%;
+}
+
+#mainPage_Jumbotron p {
+	font-size: 12pt;
+}
+
+#mainPage_Jumbotron hr {
+	border-color: black;
+}
