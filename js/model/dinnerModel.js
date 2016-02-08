@@ -3,26 +3,39 @@ var DinnerModel = function() {
  
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
-
+	var numberOfGuests;
+	var dishesInMenu;
 
 	this.setNumberOfGuests = function(num) {
-		//TODO Lab 2
-	}
+		numberOfGuests = num;
+	};
 
 	// should return 
 	this.getNumberOfGuests = function() {
-		//TODO Lab 2
-	}
+		return numberOfGuests;
+	};
 
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
-		//TODO Lab 2
-	}
+		var menu = getFullMenu();
+		var dish;
+		var x;
+		
+		if (menu === null)
+			return null;
+		
+		for (x in menu) {
+			if (getDish(menu[x]).type == type)
+				dish.push(getDish(menu[x]).name);
+		};
+		
+		return dish;
+	};
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		//TODO Lab 2
-	}
+		return dishesInMenu;
+	};
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
@@ -65,7 +78,7 @@ var DinnerModel = function() {
 		}
 	  	return dish.type == type && found;
 	  });	
-	}
+	};
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
@@ -74,7 +87,7 @@ var DinnerModel = function() {
 				return dishes[key];
 			}
 		}
-	}
+	};
 
 
 	// the dishes variable contains an array of all the 
@@ -328,4 +341,4 @@ var DinnerModel = function() {
 		}
 	];
 
-}
+};

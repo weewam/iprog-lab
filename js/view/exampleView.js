@@ -9,5 +9,5 @@ var ExampleView = function (container) {
 	
 	this.numberOfGuests.html("Hello World");
 	
-}
+};
  
