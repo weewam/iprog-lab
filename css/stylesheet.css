@@ -28,3 +28,12 @@ body {
 #mainPage_Jumbotron hr {
 	border-color: black;
 }
+
+#dinnerOverview button {
+	
+}
+
+#dinnerOverview_row {
+	border-left: 1px solid black;
+	height: 100%;
+}

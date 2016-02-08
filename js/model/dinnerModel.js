@@ -5,6 +5,7 @@ var DinnerModel = function() {
 	// and selected dinner options for dinner menu
 	var numberOfGuests;
 	var dishesInMenu;
+	var nameOfDish = "blabla";
 
 	this.setNumberOfGuests = function(num) {
 		numberOfGuests = num;

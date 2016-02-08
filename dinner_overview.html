@@ -14,7 +14,7 @@
 	    
 	</head>
 
-	<body>
+	<body id="dinnerOverview">
 		
 		<div class="page-header">
   			<h1>
@@ -24,6 +24,43 @@
   				<small>From the best chefs in the world directly into your kitchen</small>
   			</h1>
 		</div>
+		
+		<div class="jumbotron" id="dinnerOverview_Jumbotron">
+	  		<h3>My Dinner: people</h3>
+		</div>
+		
+		<div class="container">
+
+  
+			<div class="row">
+				<div class="col-lg-3">
+					<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="image" width="140" height="140">
+					<h2><span id="nameOfDish"></span></h2>
+					<p><span id="priceOfDish"></span>SEK</p>
+				</div>
+									
+				<div class="col-lg-3">
+					<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+					<h2><span id="nameOfDish"></span></h2>
+					<p><span id="priceOfDish"></span>SEK</p>
+				</div>
+				<div class="col-lg-3">
+					<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+					<h2><span id="nameOfDish"></span></h2>
+					<p><span id="priceOfDish"></span>SEK</p>
+				</div>
+				<div class="col-lg-3" id="dinnerOverview_row">
+					<p>Total:</p>
+					<p>SEK</p>
+				</div>				
+			</div>
+			
+			<hr>
+			
+			<button type="button" class="btn btn-default" onclick="">
+				Print Full Recipe
+			</button>
+     </div>
 	
 		<!-- jQuery -->
 	    <script src="https://code.jquery.com/jquery.js"></script>
