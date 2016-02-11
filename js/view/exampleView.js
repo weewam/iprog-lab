@@ -9,12 +9,5 @@ var ExampleView = function (container) {
 	
 	this.numberOfGuests.html("Hello World");
 	
-	
-	this.nameOfDish = container.find("#nameOfDish");
-	this.pictureOfDish = container.find("#pictureOfDish");
-	this.priceOfDish = container.find("#priceOfDish");
-	this.totalAmountOfMenu = container.find("#totalAmountOfMenu");
-	
-	this.nameOfDish.html("Lasgane");
 };
  

@@ -2,7 +2,7 @@
 var DinnerModel = function() {
  
 	//TODO Lab 2 implement the data structure that will hold number of guest
-	// and selected dinner options for dinner menu
+	// and selected dinner options for dinner menu	
 	var numberOfGuests;
 	var dishesInMenu;
 	var nameOfDish = "blabla";
@@ -282,7 +282,7 @@ var DinnerModel = function() {
 			'price':4
 			}]
 		},{
-		'id':102,
+		'id':103,
 		'name':'MD 4',
 		'type':'main dish',
 		'image':'meatballs.jpg',
