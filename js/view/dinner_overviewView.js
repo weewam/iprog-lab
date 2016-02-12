@@ -28,6 +28,6 @@ var Dinner_overviewView = function (container, model) {
 		element.appendChild(price);
 	};
 	
-	this.totalAmountOfMenu.textContent = model.getTotalMenuPrice();
+	//this.totalAmountOfMenu.textContent = model.getTotalMenuPrice();
 	
 };
