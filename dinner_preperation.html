@@ -25,7 +25,7 @@
   			</h1>
 		</div>
 		
-		<div class="container" id="dinner_preperationView"></div>
+		<div class="container" id="dinnerPreperation">
 			<div class="jumbotron" id="dinnerOverview_Jumbotron">
 		  		<div class="col-md-9">
 		  			<h3>My Dinner: <span id="numberOfGuests"></span> people</h3>
@@ -39,44 +39,17 @@
 			      					
 				<div class="row featurette">
 					<div class="col-md-3">
-						<img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+						<img id="pictureOfDish" class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Food picture">
 					</div>
 					<div class="col-md-4">
-						<h2 class="featurette-heading">Dish Name 1</h2>
-						<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore 
-							magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no 
-							sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+						<h2 class="featurette-heading"><span id="nameOfDish"></span></h2>
+						<p id="ingredientsOfDish"></p>
 					</div>
 					<div class="col-md-5">
 						<h3>Preperation</h3>
-						<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna 
-							aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no 
-							sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
-							nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo 
-							duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+						<p id="preperationOfDish"></p>
 					</div>
-				</div>
-				
-				<div class="row featurette">
-					<div class="col-md-3">
-						<img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-					</div>
-					<div class="col-md-4">
-						<h2 class="featurette-heading">Dish Name 2</h2>
-						<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore 
-							magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no 
-							sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-					</div>
-					<div class="col-md-5">
-						<h3>Preperation</h3>
-						<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna 
-							aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no 
-							sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
-							nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo 
-							duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-	
+				</div>	
 			</div>
 		</div>
 	
@@ -89,7 +62,7 @@
 		<script src="js/app.js"></script>
 		<script src="js/model/dinnerModel.js"></script>
 		<script src="js/view/exampleView.js"></script>
-		<script src="js/view/dinner_overviewView.js"></script>	
+		<script src="js/view/dinner_overviewView.js"></script>
 		<script src="js/view/dinner_preperationView.js"></script>	
 	</body>
 </html>

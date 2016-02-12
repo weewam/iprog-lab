@@ -13,7 +13,7 @@ var DinnerModel = function() {
 
 	// should return 
 	this.getNumberOfGuests = function() {
-		return numberOfGuests;
+		return "5";//numberOfGuests;
 	};
 
 	//Returns the dish that is on the menu for selected type 
@@ -33,6 +33,14 @@ var DinnerModel = function() {
 		return dish;
 	};
 
+	this.getPriceOfDish = function(id) {
+		//TODO added function
+	};
+
+	this.getAllIngredientsOfDish = function(id) {
+		//TODO added function
+	}
+
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
 		return dishesInMenu;
@@ -40,7 +48,7 @@ var DinnerModel = function() {
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
-		//TODO Lab 2
+		//TODO Lab 2  
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
