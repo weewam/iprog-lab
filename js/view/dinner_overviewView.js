@@ -10,12 +10,15 @@ var Dinner_overviewView = function (container, model) {
 	
 	this.numberOfGuests.textContent = model.getNumberOfGuests();
 	
-	for (dish in model.getFullMenu()) {
+	var menu = model.getFullMenu();
+	for (x in menu) {
+		var dish = menu[x];
+
 		var element = document.createElement("DIV");
 		element.setAttribute("class", "col-lg-3");                               
 		document.getElementById("row_overview").appendChild(element);
 		var img = document.createElement("IMG");
-		img.setAttribute("src", dish.image);
+		img.setAttribute("src", "images/" + dish.image);
 		img.setAttribute("alt", "Image of Food");
 		element.appendChild(img);
 		var name = document.createElement("H2");
@@ -28,6 +31,6 @@ var Dinner_overviewView = function (container, model) {
 		element.appendChild(price);
 	};
 	
-	//this.totalAmountOfMenu.textContent = model.getTotalMenuPrice();
+	this.totalAmountOfMenu.textContent = model.getTotalMenuPrice();
 	
 };

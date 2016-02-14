@@ -1,0 +1,10 @@
+figure.dish {
+	width: 100%;
+	height: 500px;
+	overflow: hidden;
+}
+
+figure.dish img{
+	display: block;
+	width: 100%;
+}

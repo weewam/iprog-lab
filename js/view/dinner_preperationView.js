@@ -10,12 +10,15 @@ var Dinner_preperationView = function (container, model) {
 	
 	this.numberOfGueststextContent = model.getNumberOfGuests();
 	
-	for (dish in model.getFullMenu()) {	
+	var menu = model.getFullMenu();
+	for (x in menu) {
+		var dish = menu[x];
+
 		var imgDiv = document.createElement("DIV");
 		imgDiv.setAttribute("class", "col-md-3");                               
 		document.getElementById("row_preperation").appendChild(imgDiv);
 		var img = document.createElement("IMG");
-		img.setAttribute("src", dish.image);
+		img.setAttribute("src", "images/" + dish.image);
 		img.setAttribute("alt", "Image of Food");
 		imgDiv.appendChild(img);
 		

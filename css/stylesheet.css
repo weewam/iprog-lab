@@ -46,3 +46,59 @@ body {
 	border-left: 1px solid black;
 	height: 100%;
 }
+
+#left-sidebar {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 280px;
+	height: 100%;
+	background: #a73737;
+}
+
+.page-container {
+	margin-left: 280px;
+	max-width: calc(100% - 280px);
+	position: relative;
+}
+
+.content-container {
+	font-family: 'Source Sans Pro', sans-serif;
+	margin: 0 auto;
+	max-width: 1170px;
+	padding: 0px 40px;
+	box-sizing: border-box;
+}
+
+
+button {
+	font-family: 'Source Sans Pro', sans-serif;
+
+	border: none;
+	color: #fff;
+	background: #3498db;
+	border-radius: 2px;
+
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 1em;
+	text-transform: uppercase;
+}
+
+button.rounded {
+	border-radius: 50px;
+}
+
+#left-sidebar .button {
+	display: block;
+	padding: 15px 0px;
+	width: 230px;
+	margin: 0 auto;
+}
+
+#specific-dish .button {
+	position: absolute;
+	left: 50px;
+	top: 50px;
+	padding: 15px 40px;
+}

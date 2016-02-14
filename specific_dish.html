@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>Dinner planner</title>
+	
+	    <!-- Bootstrap CSS -->
+	    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"><link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900,300,200' rel='stylesheet' type='text/css'>
+
+	    <!-- Own created CSS -->
+	    <link rel="stylesheet" href="css/stylesheet.css">
+	    <link rel="stylesheet" href="css/specific_dish.css">
+	    
+	</head>
+
+	<body>
+		<section id="left-sidebar">
+			<figure>
+				DINE
+				<img src="logo.png">
+			</figure>
+
+			<div class="dishes">
+
+			</div>
+
+			<button class="button">Confirm dinner</button>
+		</section>
+
+		<section id="specific-dish" class="page-container">
+			<button class="back button rounded">Back to select dish</button>
+
+			<figure class="dish">
+				<img src="images/toast.jpg">
+			</figure>
+
+			<div class="content-container">
+				<h1>Lasagna</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+				<h2>Ingredients for 4 people</h2>
+				<ul>
+					<li>2 tbsp Olive oil SEK 0.20</li>
+				</ul>
+
+				<h2>Preperation</h2>
+				<div>
+
+					<h3></h3>
+
+				</div>
+
+			</div>
+		</section>
+
+		<!-- jQuery -->
+	    <script src="https://code.jquery.com/jquery.js"></script>
+	    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+	    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+	
+		<!-- The application JavaScript code -->
+		<script src="js/app.js"></script>
+		<script src="js/model/dinnerModel.js"></script>
+		<script src="js/view/exampleView.js"></script>
+		<script src="js/view/dinner_overviewView.js"></script>
+		<script src="js/view/dinner_preperationView.js"></script>	
+	</body>
+</html>
