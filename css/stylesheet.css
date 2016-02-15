@@ -92,6 +92,7 @@ body {
 	margin-left: 280px;
 	max-width: calc(100% - 280px);
 	position: relative;
+	color: #222222;
 }
 
 .col-md-5 {
@@ -121,7 +122,6 @@ button {
 	border: none;
 	color: #fff;
 	background: #36d16f;
-	border: 1px solid #33c468;
 	border-radius: 2px;
 
 	font-size: 14px;

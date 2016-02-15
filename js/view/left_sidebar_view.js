@@ -12,14 +12,11 @@ var LeftSidebarView = function($container, model) {
 			$courseCost = $course.find(".cost");
 
 		$courseName.html(dish.name);
-		$courseCost.html("100");
+		$courseCost.html(model.getPriceOfDish(dish.id));
 	}
 
 	this.$totalCost = $container.find(".total-cost .cost");
 	this.$totalCost.html(model.getTotalMenuPrice());
-
-
-	
 	
 };
 
