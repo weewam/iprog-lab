@@ -1,5 +1,11 @@
 body {
+	margin: 0;
+}
 
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 #mainPage {
@@ -47,15 +53,6 @@ body {
 	height: 100%;
 }
 
-#left-sidebar {
-	position: fixed;
-	left: 0px;
-	top: 0px;
-	width: 280px;
-	height: 100%;
-	background: #a73737;
-}
-
 .page-container {
 	margin-left: 280px;
 	max-width: calc(100% - 280px);
@@ -63,24 +60,33 @@ body {
 }
 
 .content-container {
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Quicksand', sans-serif;
 	margin: 0 auto;
 	max-width: 1170px;
-	padding: 0px 40px;
+	padding: 40px;
 	box-sizing: border-box;
+	font-size: 18px;
+}
+
+
+.content-container h1{
+	font-weight: 300;
+	font-size: 46px;
+	margin: 0;
 }
 
 
 button {
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Quicksand', sans-serif;
 
 	border: none;
 	color: #fff;
-	background: #3498db;
+	background: #39df77;
+	border: 1px solid #34d170;
 	border-radius: 2px;
 
-	font-size: 16px;
-	font-weight: 600;
+	font-size: 15px;
+	font-weight: 700;
 	line-height: 1em;
 	text-transform: uppercase;
 }
@@ -89,16 +95,83 @@ button.rounded {
 	border-radius: 50px;
 }
 
-#left-sidebar .button {
-	display: block;
-	padding: 15px 0px;
-	width: 230px;
-	margin: 0 auto;
+
+
+#left-sidebar {
+	font-family: 'Quicksand', sans-serif;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 280px;
+	height: 100%;
+	color: #fff;
+	background: #212226;
+	border-right: 1px solid #261a17;
+	box-sizing: border-box;
 }
 
-#specific-dish .button {
+#left-sidebar h1{
+	margin: 0 auto;
+
+	color: #fff;
+	font-weight: 800;
+	line-height: 1em;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#left-sidebar .menu h3 {
+	text-align: center;
+	margin: 0;
+}
+
+#left-sidebar .menu ul {
+	width: calc(100%);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#left-sidebar .menu li {
+	padding: 20px;
+}
+
+#left-sidebar .menu li.header {
+	font-weight: 700;
+	border-bottom: 1px solid #101012;
+}
+
+#left-sidebar .menu li.dish {
+	background: #1b1c1f;
+	border-bottom: 1px solid #101012;
+}
+
+#left-sidebar p {
+	margin: 0;
+	color: #fff;
+}
+
+#left-sidebar p span {
+	float: right;
+	color: #999999;
+}
+
+#left-sidebar footer {
 	position: absolute;
-	left: 50px;
-	top: 50px;
-	padding: 15px 40px;
+	left: 0px;
+	bottom: 0px;
+	padding: 25px;
+	width: calc(100% - 50px);
+}
+
+#left-sidebar footer .total-cost {
+	font-size: 20px;
+}
+
+#left-sidebar footer .button {
+	display: block;
+	margin: 20px auto 0;
+
+	padding: 14px 0px;
+	width: 230px;
 }

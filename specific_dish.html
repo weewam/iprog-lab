@@ -7,7 +7,7 @@
 	    <title>Dinner planner</title>
 	
 	    <!-- Bootstrap CSS -->
-	    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"><link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900,300,200' rel='stylesheet' type='text/css'>
+	    <link href='https://fonts.googleapis.com/css?family=Quicksand:400,300,700' rel='stylesheet' type='text/css'>
 
 	    <!-- Own created CSS -->
 	    <link rel="stylesheet" href="css/stylesheet.css">
@@ -18,26 +18,45 @@
 	<body>
 		<section id="left-sidebar">
 			<figure>
-				DINE
+				<h1>DINE</h1>
 				<img src="logo.png">
 			</figure>
 
-			<div class="dishes">
+			<div class="menu">
+				<h3>Menu</h3>
+				<ul>
+					<li class="header group">
+						<p>Dish Name<span>Cost</span></p>
+					</li>
 
+					<li class="group dish">
+						<p>Lasagna<span>72 kr</span></p>
+					</li>
+					<li class="group dish">
+						<p>Lasagna<span>72 kr</span></p>
+					</li>
+				</ul>
 			</div>
 
-			<button class="button">Confirm dinner</button>
+			<footer>
+				<p class="total-cost">Total cost: <span>72 kr</span></p>
+				<button class="button">Confirm dinner</button>
+			</footer>
 		</section>
 
 		<section id="specific-dish" class="page-container">
-			<button class="back button rounded">Back to select dish</button>
+			<button class="back button rounded">back</button>
 
 			<figure class="dish">
 				<img src="images/toast.jpg">
 			</figure>
 
 			<div class="content-container">
-				<h1>Lasagna</h1>
+				<header class="group">
+					<h1>Lasagna</h1>
+					<button class="add-dish rounded button">+</button>
+				</header>
+
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo

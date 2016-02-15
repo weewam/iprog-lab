@@ -1,10 +1,66 @@
-figure.dish {
+#specific-dish figure.dish {
+	margin: 0;
 	width: 100%;
 	height: 500px;
 	overflow: hidden;
+	position: relative;
 }
 
-figure.dish img{
+#specific-dish figure.dish:before {
+	content: "";
+	position: absolute;
+	left: -50px;
+	top: 0px;
+	width: calc(100% + 100px);
+	height: 100%;
+    box-shadow: inset 0px -20px 50px 0px rgba(0, 0, 0, 0.30);
+}
+
+#specific-dish figure.dish img{
 	display: block;
 	width: 100%;
+}
+
+#specific-dish header{
+	margin: 0 0 30px;
+	position: relative;
+}
+
+#specific-dish .add-dish.button {
+	position: absolute;
+	top: -70px;
+	right: 0;
+	width: 60px;
+	height: 60px;
+	font-size: 40px;
+	font-weight: 400;
+	box-shadow: 0px 3px 13px 0px rgba(40, 158, 85, 0.75);
+}
+
+#specific-dish .back.button {
+	position: absolute;
+	left: 50px;
+	top: 50px;
+	padding: 12px 30px;
+	z-index: 2;
+}
+
+#specific-dish header h1{
+	float: left;
+}
+
+#specific-dish header button{
+	float: right;
+}
+
+#specific-dish p{
+	margin: 0;
+	line-height: 1.5em;
+}
+
+#specific-dish h2{
+	margin: 50px 0px 0px;
+	font-size: 24px;
+	text-transform: uppercase;
+	font-weight: 700;
 }
