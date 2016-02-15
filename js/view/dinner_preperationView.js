@@ -21,13 +21,13 @@ var Dinner_preperationView = function (container, model) {
 			var img = document.createElement("IMG");
 			img.setAttribute("src", "images/" + dish.image);
 			img.setAttribute("alt", "Image of Food");
+			img.setAttribute("id", "prepImg");
 			imgDiv.appendChild(img);
 			
 			var nameDiv = document.createElement("DIV");
 			nameDiv.setAttribute("class", "col-md-4");                               
 			document.getElementById("row_preperation").appendChild(nameDiv);
 			var name = document.createElement("H2");
-			name.setAttribute("class", "featurette-heading");
 			var tname = document.createTextNode(dish.name);
 			name.appendChild(tname);
 			nameDiv.appendChild(name);

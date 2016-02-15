@@ -22,12 +22,15 @@ var Dinner_overviewView = function (container, model) {
 			var img = document.createElement("IMG");
 			img.setAttribute("src", "images/" + dish.image);
 			img.setAttribute("alt", "Image of Food");
+			img.setAttribute("id", "overImg");
 			element.appendChild(img);
-			var name = document.createElement("H2");
+			var name = document.createElement("H3");
+			name.setAttribute("id", "nameDish");
 			var tname = document.createTextNode(dish.name);
 			name.appendChild(tname);
 			element.appendChild(name);
 			var price = document.createElement("P");
+			price.setAttribute("id", "priceDish");
 			var tprice = document.createTextNode(model.getPriceOfDish(dish.id) + " SEK");
 			price.appendChild(tprice);
 			element.appendChild(price);

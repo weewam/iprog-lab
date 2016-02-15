@@ -41,7 +41,8 @@ body {
 }
 
 #dinnerOverview_Jumbotron {
-	padding-top: 5px;
+	padding-top: 1px;
+	padding-bottom: 70px;
 }
 
 #dinnerOverview button {
@@ -53,10 +54,48 @@ body {
 	height: 100%;
 }
 
+#prepImg {
+	margin-top: 25px;
+}
+
+#priceDish {
+	text-align: right;
+}
+
+#nameDish {
+	text-align: center;
+}
+
+#overImg {
+	min-height: 270px;
+	min-width: 270px;
+}
+
+#totalAmount {
+	margin-top: 326px;
+}
+
+#printButton {
+	position:relative; 
+	margin: -20px -130px; 
+	top:50%; 
+	left:50%;
+	background-color: green;
+	color: white;
+}
+
+#headerButton {
+	margin-top: 17px;
+}
+
 .page-container {
 	margin-left: 280px;
 	max-width: calc(100% - 280px);
 	position: relative;
+}
+
+.col-md-5 {
+	margin-bottom: 40px;
 }
 
 .content-container {
