@@ -10,27 +10,32 @@ var Dinner_overviewView = function (container, model) {
 	
 	this.numberOfGuests.textContent = model.getNumberOfGuests();
 	
-	var menu = model.getFullMenu();
-	for (x in menu) {
-		var dish = menu[x];
-
-		var element = document.createElement("DIV");
-		element.setAttribute("class", "col-lg-3");                               
-		document.getElementById("row_overview").appendChild(element);
-		var img = document.createElement("IMG");
-		img.setAttribute("src", "images/" + dish.image);
-		img.setAttribute("alt", "Image of Food");
-		element.appendChild(img);
-		var name = document.createElement("H2");
-		var tname = document.createTextNode(dish.name);
-		name.appendChild(tname);
-		element.appendChild(name);
-		var price = document.createElement("P");
-		var tprice = document.createTextNode(model.getPriceOfDish(dish.id) + " SEK");
-		price.appendChild(tprice);
-		element.appendChild(price);
+	if (document.getElementById("row_overview") != null) {
+		var menu = model.getFullMenu();
+		for (x in menu) {
+			var dish = menu[x];
+	
+			var element = document.createElement("DIV");
+			element.setAttribute("class", "col-lg-3");                               
+			
+			document.getElementById("row_overview").appendChild(element);
+			var img = document.createElement("IMG");
+			img.setAttribute("src", "images/" + dish.image);
+			img.setAttribute("alt", "Image of Food");
+			img.setAttribute("id", "overImg");
+			element.appendChild(img);
+			var name = document.createElement("H3");
+			name.setAttribute("id", "nameDish");
+			var tname = document.createTextNode(dish.name);
+			name.appendChild(tname);
+			element.appendChild(name);
+			var price = document.createElement("P");
+			price.setAttribute("id", "priceDish");
+			var tprice = document.createTextNode(model.getPriceOfDish(dish.id) + " SEK");
+			price.appendChild(tprice);
+			element.appendChild(price);
+		};
+		
+		this.totalAmountOfMenu.textContent = model.getTotalMenuPrice();
 	};
-	
-	this.totalAmountOfMenu.textContent = model.getTotalMenuPrice();
-	
 };

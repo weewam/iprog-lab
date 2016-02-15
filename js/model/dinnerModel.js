@@ -3,8 +3,7 @@ var DinnerModel = function() {
  
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu	
-	var numberOfGuests;
-	var nameOfDish = "blabla";
+	var numberOfGuests = 0;
 	var dishesInMenu = {
 		"starter":   null, 
 		"main dish": null, 
@@ -17,7 +16,7 @@ var DinnerModel = function() {
 
 	// should return 
 	this.getNumberOfGuests = function() {
-		return "5";//numberOfGuests;
+		return "5"; //numberOfGuests;
 	};
 
 	//Returns the dish that is on the menu for selected type 
@@ -38,12 +37,28 @@ var DinnerModel = function() {
 	};
 
 	this.getPriceOfDish = function(id) {
-		//TODO added function
+		if (this.getNumberOfGuests() == 0) {
+			return 0;
+		};
+			
+		var sum = 0;
+		
+		for (x in this.getDish(id).ingredients) {
+			sum += this.getDish(id).ingredients[x].price;
+		};
+		
+		return sum * this.getNumberOfGuests();
 	};
 
 	this.getAllIngredientsOfDish = function(id) {
-		//TODO added function
-	}
+		var ingredients = [];
+		
+		for (x in this.getDish(id).ingredients) {
+			var ingredient = this.getDish(id).ingredients[x];
+			ingredients.push(ingredient.name + ": " + ingredient.quantity + ingredient.unit);
+		};
+		return ingredients;
+	};
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
