@@ -81,11 +81,11 @@ button {
 
 	border: none;
 	color: #fff;
-	background: #39df77;
-	border: 1px solid #34d170;
+	background: #36d16f;
+	border: 1px solid #33c468;
 	border-radius: 2px;
 
-	font-size: 15px;
+	font-size: 14px;
 	font-weight: 700;
 	line-height: 1em;
 	text-transform: uppercase;
@@ -95,65 +95,114 @@ button.rounded {
 	border-radius: 50px;
 }
 
-
-
 #left-sidebar {
-	font-family: 'Quicksand', sans-serif;
 	position: fixed;
 	left: 0px;
 	top: 0px;
 	width: 280px;
 	height: 100%;
-	color: #fff;
 	background: #212226;
-	border-right: 1px solid #261a17;
 	box-sizing: border-box;
+
+	color: #fff;
+	font-size: 14px;
+	font-family: 'Quicksand', sans-serif;
 }
 
-#left-sidebar h1{
-	margin: 0 auto;
+#left-sidebar .logo{
+    width: 100px;
+    margin: 0;
+    padding: 50px 90px 0px;
+}
 
-	color: #fff;
-	font-weight: 800;
-	line-height: 1em;
-	text-align: center;
-	text-transform: uppercase;
+#left-sidebar .logo img{
+	width: 100%;
+    display: block;
 }
 
 #left-sidebar .menu h3 {
 	text-align: center;
 	margin: 0;
+    font-size: 22px;
+    line-height: 1em;
+	font-weight: 400;
+	padding: 35px 0 0;
 }
 
-#left-sidebar .menu ul {
-	width: calc(100%);
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-#left-sidebar .menu li {
-	padding: 20px;
-}
-
-#left-sidebar .menu li.header {
+#left-sidebar .menu .guests{
+	padding: 35px 25px 0;
+	height: 40px;
+	line-height: 40px;
 	font-weight: 700;
-	border-bottom: 1px solid #101012;
 }
 
-#left-sidebar .menu li.dish {
-	background: #1b1c1f;
-	border-bottom: 1px solid #101012;
+#left-sidebar .menu .guests .input-container{
+	float: right;
 }
 
-#left-sidebar p {
+#left-sidebar .menu .guests .input-container > *{
+	float: left;
+}
+
+#left-sidebar .menu .guests .decrement,
+#left-sidebar .menu .guests .increment{
+	color: #999999;
+	font-size: 18px;
+	font-weight: 400;
+}
+
+#left-sidebar .menu .guests .decrement{
+	margin-right: 15px;
+}
+
+#left-sidebar .menu .guests .increment{
+	margin-left: 15px;
+}
+
+#left-sidebar .guests input{
+    padding: 0;
+    outline: none;
+	width: 40px;
+	height: 40px;
+    border-radius: 2px;
+	background: #1b1b1f;
+    border: 1px solid #141417;
+    box-sizing: border-box;
+
+	color: #fff;
+	font-size: 18px;
+	font-weight: 700;
+	text-align: center;
+    font-family: inherit;
+}
+
+#left-sidebar .course {
+	padding: 35px 25px 0;
+}
+
+#left-sidebar .course h4{
 	margin: 0;
+}
+
+#left-sidebar .course p{
+	margin: 15px 0 0;
 	color: #fff;
 }
 
-#left-sidebar p span {
+#left-sidebar .course p span{
+}
+
+#left-sidebar .course p .name{
+}
+
+#left-sidebar .course p .cost,
+#left-sidebar .course p .currency{
 	float: right;
 	color: #999999;
+}
+
+#left-sidebar .course p .currency{
+	margin-left: 3px;
 }
 
 #left-sidebar footer {
@@ -165,7 +214,22 @@ button.rounded {
 }
 
 #left-sidebar footer .total-cost {
-	font-size: 20px;
+	font-weight: 700;
+	margin: 0;
+}
+
+#left-sidebar footer .total-cost p{
+	margin: 0;
+	color: #fff;
+}
+
+#left-sidebar footer .total-cost span{
+	float: right;
+	color: #999999;
+}
+
+#left-sidebar footer .total-cost .currency{
+	margin-left: 3px;
 }
 
 #left-sidebar footer .button {
