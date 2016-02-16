@@ -36,10 +36,6 @@ body {
 	border-color: black;
 }
 
-#dinnerOverview {
-	
-}
-
 #dinnerOverview_Jumbotron {
 	padding-top: 1px;
 	padding-bottom: 70px;
@@ -56,6 +52,7 @@ body {
 
 #prepImg {
 	margin-top: 25px;
+	margin-bottom: 25px;
 }
 
 #priceDish {
