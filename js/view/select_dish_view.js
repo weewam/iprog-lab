@@ -1,35 +1,32 @@
 var SelectDishView = function($container, model) {
-	var dish = model.getDish(model.getCurrentDish());
+	$container.removeClass("not-loaded");
 
-	this.$numberOfGuests = $container.find(".number-of-guests");
-	this.$numberOfGuests.html(model.getNumberOfGuests());
 
-	this.$courseName = $container.find("h1.name");
-	this.$courseName.html(dish.name);
+	this.$dishes = $container.find("#dishes");
+	this.dishesString = "";
 
-	this.$courseDescription = $container.find("p.description");
-	this.$courseDescription.html(dish.description);
 
-	this.$ingredients = $container.find("table.ingredients");
-	this.$ingredientsString = "";
+	var dishes = model.getAllDishes(model.getCurrentFilter(), model.getSearchString());
 
-	for (x in dish.ingredients) {
-		var ingredient = dish.ingredients[x];
-		var quantity = "<td><span class='quantity'>" + ingredient.quantity + " "  + ingredient.unit + "</span> " + ingredient.name + "</td>";
-		var name = "";
-		var cost = "<td class='cost'>" + (ingredient.price * model.getNumberOfGuests()) + "<span class='currency'>kr</span></td>";
+	for (var i = 0; i < dishes.length; i++) {
+		var dish = dishes[i];
 
-		this.$ingredientsString += "<tr class='ingredient'>" + quantity + cost + "</tr>";
-	}
+		console.log(dish);
 
-	this.$ingredientsString += "<tr class='total-cost'><td>Total cost:</td><td class='cost'>" + model.getPriceOfDish(dish.id) + "<span class='currency'>kr</span></td></tr>";
-	this.$ingredients.html(this.$ingredientsString);
+		var dishImage = '<figure><img src="images/' + dish.image + '"></figure>';
 
-	this.$pictureOfDish = $container.find(".dish img");
-	this.$pictureOfDish.attr("src", "images/large-" + dish.image);
 
-	this.$pictureOfDish.one('load',function() {
-		$container.removeClass("not-loaded");
-    });
+		var dishText = '<div class="text">\
+							<h3>' + dish.name + '</h3>\
+							<p>' + dish.description + '</p>\
+						</div>';
+		this.dishesString += '<div class="dish">' + dishImage + dishText + '</div>';
+	};
+
+
+	for (x in dishes) {
+	};
+
+	this.$dishes.html(this.dishesString);
 };
 

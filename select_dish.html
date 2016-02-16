@@ -11,7 +11,7 @@
 
 	    <!-- Own created CSS -->
 	    <link rel="stylesheet" href="css/stylesheet.css">
-	    <link rel="stylesheet" href="css/specific_dish.css">
+	    <link rel="stylesheet" href="css/select_dish.css">
 	    
 	</head>
 
@@ -57,23 +57,69 @@
 		</section>
 
 		<section id="select-dish" class="page-container not-loaded">
-			<button class="back button rounded">back</button>
-
-			<figure class="dish">
-				<img>
-			</figure>
-
 			<div class="content-container">
 				<header class="group">
-					<h1 class="name"></h1>
-					<button class="add-dish rounded button">+</button>
+					<h1>Select dish</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+
+					<div class="search-container group">
+						<input type="text" name="search" placeholder="What would you like to cook today?">
+						<input type="submit" name="submit" value="Search">
+
+					</div>
+
+					<div id="course-filter" class="group">
+						<div class="course" data-course="starter">
+							<input type="radio" name="course" value="starter">
+							<p>Starter</p>
+						</div>
+
+						<div class="course" data-course="main dish">
+							<input type="radio" name="course" value="main dish" checked>
+							<p>Main Dish</p>
+						</div>
+
+						<div class="course" data-course="dessert">
+							<input type="radio" name="course" value="dessert">
+							<p>Dessert</p>
+						</div>
+					</div>
 				</header>
 
-				<p class="description"></p>
+				<div id="dishes" class="group">
+					<div class="dish">
+						<figure>
+							<img src="images/bakedbrie.jpg">
+						</figure>
 
-				<h2>Ingredients for <span class="number-of-guests">0</span> people</h2>
-				<table class="ingredients">
-				</table>
+						<div class="text">	
+							<h3>Baked Brie</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+						</div>
+					</div>
+
+					<div class="dish">
+						<figure>
+							<img src="images/bakedbrie.jpg">
+						</figure>
+
+						<div class="text">	
+							<h3>Baked Brie</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+						</div>
+					</div>
+
+					<div class="dish">
+						<figure>
+							<img src="images/bakedbrie.jpg">
+						</figure>
+
+						<div class="text">	
+							<h3>Baked Brie</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 

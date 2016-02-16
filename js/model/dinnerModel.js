@@ -5,6 +5,10 @@ var DinnerModel = function() {
 	// and selected dinner options for dinner menu	
 	var currentDish = 100;
 	var numberOfGuests = 0;
+
+	var searchString = "";
+	var filter = "main dish";
+
 	var dishesInMenu = {
 		"starter":   null, 
 		"main dish": null, 
@@ -23,6 +27,14 @@ var DinnerModel = function() {
 	// should return 
 	this.getCurrentDish = function() {
 		return currentDish; //numberOfGuests;
+	};
+
+	this.getSearchString = function() {
+		return searchString; //numberOfGuests;
+	};
+
+	this.getCurrentFilter = function() {
+		return filter; //numberOfGuests;
 	};
 
 	//Returns the dish that is on the menu for selected type 
