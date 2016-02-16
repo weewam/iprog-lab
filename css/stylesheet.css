@@ -19,6 +19,17 @@ body {
 	padding-top: 3px;
 	margin-top: 0%;
 	margin-bottom: 0%;
+	background: #212226;
+	
+	color: #fff;
+	font-size: 14px;
+	font-family: 'Quicksand', sans-serif;
+}
+
+#headerPic {
+	width: 50px;
+	height: 50px;
+	margin-right: 30px;
 }
 
 #mainPage_Jumbotron {
@@ -39,10 +50,7 @@ body {
 #dinnerOverview_Jumbotron {
 	padding-top: 1px;
 	padding-bottom: 70px;
-}
-
-#dinnerOverview button {
-	
+	padding-left: 10%;
 }
 
 #dinnerOverview_row {
@@ -72,17 +80,58 @@ body {
 	margin-top: 326px;
 }
 
+#createButton {
+	font-family: 'Quicksand', sans-serif;
+
+	border: none;
+	color: #fff;
+	background: #36d16f;
+	border-radius: 2px;
+
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1em;
+	text-transform: uppercase;
+	
+	border-radius: 50px;
+}
+
 #printButton {
 	position:relative; 
 	margin: -20px -130px; 
 	top:50%; 
 	left:50%;
-	background-color: green;
-	color: white;
+	
+	font-family: 'Quicksand', sans-serif;
+
+	border: none;
+	color: #fff;
+	background: #36d16f;
+	border-radius: 2px;
+
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1em;
+	text-transform: uppercase;
+	
+	border-radius: 50px;
 }
 
 #headerButton {
 	margin-top: 17px;
+	font-family: 'Quicksand', sans-serif;
+
+	border: none;
+	color: #fff;
+	background: #36d16f;
+	border-radius: 2px;
+
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1em;
+	text-transform: uppercase;
+	
+	border-radius: 50px;
 }
 
 .page-container {
