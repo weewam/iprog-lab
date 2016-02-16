@@ -93,6 +93,17 @@ body {
 	max-width: calc(100% - 280px);
 	position: relative;
 	color: #222222;
+	opacity: 1;
+
+	-webkit-transition: opacity .15s ease-in-out;
+	-moz-transition: opacity .15s ease-in-out;
+	-ms-transition: opacity .15s ease-in-out;
+	-o-transition: opacity .15s ease-in-out;
+	transition: opacity .15s ease-in-out;
+}
+
+.page-container.not-loaded {
+	opacity: 0;
 }
 
 .col-md-5 {

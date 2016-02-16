@@ -9,6 +9,7 @@ $(function() {
 	//And create the needed controllers and views
 	var left_side_bar = new LeftSidebarView($("#left-sidebar"), model);
 	var specific_dish_view = new SpecificDishView($("#specific-dish"), model);
+	var select_dish_view = new SelectDishView($("#select-dish"), model);
 
 
 	var exampleView = new ExampleView($("#exampleView"), model);

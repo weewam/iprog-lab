@@ -1,4 +1,4 @@
-var SpecificDishView = function($container, model) {
+var SelectDishView = function($container, model) {
 	var dish = model.getDish(model.getCurrentDish());
 
 	this.$numberOfGuests = $container.find(".number-of-guests");
