@@ -1,41 +1,26 @@
-var Dinner_overviewView = function (container, model) {
+var Dinner_overviewView = function ($container, model) {
 	
 	// Get all the relevant elements of the view (ones that show data
   	// and/or ones that responed to interaction)
-	this.numberOfGuests = document.getElementById("numberOfGuests");
-	this.nameOfDish = document.getElementById("nameOfDish");
-	this.pictureOfDish = document.getElementById("pictureOfDish");
-	this.priceOfDish = document.getElementById("priceOfDish");
-	this.totalAmountOfMenu = document.getElementById("totalAmountOfMenu");
+	this.$numberOfGuests = $container.find("#numberOfGuests");
+	this.$numberOfGuests.html(model.getNumberOfGuests());
 	
-	this.numberOfGuests.textContent = model.getNumberOfGuests();
+	this.$totalAmountOfMenu = $container.find("#totalAmountOfMenu");
+	this.$totalAmountOfMenu.html(model.getTotalMenuPrice());
 	
-	if (document.getElementById("row_overview") != null) {
-		var menu = model.getFullMenu();
-		for (x in menu) {
-			var dish = menu[x];
+	this.$menu = $container.find("#row_overview");
+	this.$menuString = "";
+	var menu = model.getFullMenu();
+	for (x in menu) {
+		var dish = menu[x];
 	
-			var element = document.createElement("DIV");
-			element.setAttribute("class", "col-lg-3");                               
-			
-			document.getElementById("row_overview").appendChild(element);
-			var img = document.createElement("IMG");
-			img.setAttribute("src", "images/" + dish.image);
-			img.setAttribute("alt", "Image of Food");
-			img.setAttribute("id", "overImg");
-			element.appendChild(img);
-			var name = document.createElement("H3");
-			name.setAttribute("id", "nameDish");
-			var tname = document.createTextNode(dish.name);
-			name.appendChild(tname);
-			element.appendChild(name);
-			var price = document.createElement("P");
-			price.setAttribute("id", "priceDish");
-			var tprice = document.createTextNode(model.getPriceOfDish(dish.id) + " SEK");
-			price.appendChild(tprice);
-			element.appendChild(price);
-		};
-		
-		this.totalAmountOfMenu.textContent = model.getTotalMenuPrice();
+		var row = "<div class='col-lg-3'>"; 
+		var img = "<img src='images/" + dish.image + "' alt='Image of Food' id='overImg'>";                          
+		var name = "<h3 id='nameDish'>" + dish.name + "</h3>";
+		var price = "<p id='priceDish'>" + model.getPriceOfDish(dish.id) + " SEK</p>";
+	
+		this.$menuString += row + img + name + price + "</div>";
 	};
+		
+	this.$menu.html(this.$menuString);
 };

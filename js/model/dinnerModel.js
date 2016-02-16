@@ -61,7 +61,7 @@ var DinnerModel = function() {
 		
 		for (x in this.getDish(id).ingredients) {
 			var ingredient = this.getDish(id).ingredients[x];
-			ingredients.push(ingredient.name + ": " + ingredient.quantity + ingredient.unit);
+			ingredients.push(ingredient.name + ": " + ingredient.quantity + " " + ingredient.unit);
 		};
 		return ingredients;
 	};
