@@ -1,5 +1,5 @@
-var DinnerPreperationController = function(view, model ) {
+var DinnerPreperationController = function(view, model, mainController) {
 	view.$goBack.click(function() {
-		document.location.href = "select_dish.html";
+		mainController.navigateTo("select-dish");
 	});
 };

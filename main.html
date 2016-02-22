@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner planner</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Quicksand:400,300,700' rel='stylesheet' type='text/css'>
+    
+    <!-- Own created CSS -->
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="css/specific_dish.css">
+    <link rel="stylesheet" href="css/select_dish.css">
+
+  </head>
+  <body>
+    <section id="left-sidebar">
+      <figure class="logo">
+        <img src="images/resources/logo.png">
+      </figure>
+
+      <div class="menu">
+        <h3>Menu</h3>
+
+        <div class="guests group">
+          Guests
+
+          <div class="input-container group">
+            <span class="decrement">-</span>
+            <input type="text" value="" disabled>
+            <span class="increment">+</span>
+          </div>
+        </div>
+
+        <div class="course" data-course="starter">
+          <h4>Starter</h4>
+          <p><span class="name">None chosen</span><span class="currency">kr</span><span class="cost">0</span></p>
+        </div>
+
+        <div class="course" data-course="main dish">
+          <h4>Main dish</h4>
+          <p><span class="name">None chosen</span><span class="currency">kr</span><span class="cost">0</span></p>
+        </div>
+
+        <div class="course" data-course="dessert">
+          <h4>Dessert</h4>
+          <p><span class="name">None chosen</span><span class="currency">kr</span><span class="cost">0</span></p>
+        </div>
+      </div>
+
+      <footer>
+        <p class="total-cost">Total cost: <span class="currency">kr</span><span class="cost">72</span></p>
+        <button id="confirmMenu" class="button">Confirm dinner</button>
+      </footer>
+    </section>
+    
+    <div id="page-header">
+      <h3>
+        <a href="index.html">
+          <img src="images/resources/logo.png" id="headerPic">
+        </a> 
+        From the best chefs in the world directly into your kitchen
+      </h3>
+    </div> 
+
+    <section id="select-dish" class="page-container">
+      <div class="content-container">
+        <header class="group">
+          <h1>Select dish</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+
+          <div class="search-container group">
+            <input type="text" name="search" placeholder="What would you like to cook today?">
+            <input id="searchButton" type="submit" name="submit" value="Search">
+
+          </div>
+
+          <div id="course-filter" class="group">
+            <div class="course" data-course="starter">
+              <input type="radio" name="course" value="starter">
+              <p>Starter</p>
+            </div>
+
+            <div class="course" data-course="main dish">
+              <input type="radio" name="course" value="main dish" checked>
+              <p>Main Dish</p>
+            </div>
+
+            <div class="course" data-course="dessert">
+              <input type="radio" name="course" value="dessert">
+              <p>Dessert</p>
+            </div>
+          </div>
+        </header>
+
+        <div id="dishes" class="group">
+          <div class="dish">
+            <figure>
+              <img src="images/bakedbrie.jpg">
+            </figure>
+
+            <div class="text">  
+              <h3>Baked Brie</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+            </div>
+          </div>
+
+          <div class="dish">
+            <figure>
+              <img src="images/bakedbrie.jpg">
+            </figure>
+
+            <div class="text">  
+              <h3>Baked Brie</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+            </div>
+          </div>
+
+          <div class="dish">
+            <figure>
+              <img src="images/bakedbrie.jpg">
+            </figure>
+
+            <div class="text">  
+              <h3>Baked Brie</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="specific-dish" class="page-container not-loaded">
+      <button class="back button rounded">back</button>
+
+      <figure class="dish">
+        <img>
+      </figure>
+
+      <div class="content-container">
+        <header class="group">
+          <h1 class="name"></h1>
+          <button class="add-dish rounded button">+</button>
+        </header>
+
+        <p class="description"></p>
+
+        <h2>Ingredients for <span class="number-of-guests">0</span> people</h2>
+        <table class="ingredients">
+        </table>
+      </div>
+    </section>
+    
+    <div id="dinnerOverview" class="page-container">
+      
+      <div class="jumbotron" id="dinnerOverview_Jumbotron">
+          <div class="col-md-9">
+            <h3>My Dinner: <span id="numberOfGuests">0</span> people</h3>
+          </div>
+        <div class="col-md-1">
+          <button id="headerButton" class="btn btn-default">Go back and edit dinner</button>
+        </div>
+      </div>
+      
+      <div class="container">
+  
+    
+        <div class="row">
+          <div id="row_overview"></div>
+          <div class="col-lg-3" id="dinnerOverview_row">
+            <p id="totalAmount">Total: <span id="totalAmountOfMenu"></span> SEK</p>
+          </div>        
+        </div>
+        
+        <hr>
+        
+        <button id="printButton" type="button" class="btn btn-default" onclick="">
+          Print Full Recipe
+        </button>
+      </div>
+    </div>
+    
+    <div id="dinnerPreperation" class="page-container">
+      <div class="jumbotron" id="dinnerOverview_Jumbotron">
+          <div class="col-md-9">
+            <h3>My Dinner: <span id="numberOfGuests">0</span> people</h3>
+          </div>
+        <div class="col-md-1">
+          <button id="headerButton" class="btn btn-default">Go back and edit dinner</button>
+        </div>
+      </div>
+      
+      <div class="container">       
+        <div id="row_preperation"></div>
+      </div>
+    </div>
+	
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+  <script src="js/controller/main_controller.js"></script>
+
+  <script src="js/view/left_sidebar_view.js"></script>
+ 	<script src="js/controller/left_sidebar_controller.js"></script>
+
+  <script src="js/view/specific_dish_view.js"></script>
+  <script src="js/controller/specific_dish_controller.js"></script>
+
+  <script src="js/view/select_dish_view.js"></script>
+  <script src="js/controller/select_dish_controller.js"></script>
+      
+	<script src="js/view/dinner_overviewView.js"></script>
+	<script src="js/controller/dinner_overview_controller.js"></script>
+		
+	<script src="js/view/dinner_preperationView.js"></script>
+	<script src="js/controller/dinner_preperation_controller.js"></script>
+		
+  </body>
+</html>

@@ -65,7 +65,7 @@
 
 #select-dish header #course-filter{
 	margin: 20px auto 0;
-	width: 340px;
+	width: 346px;
 }
 
 #select-dish header #course-filter .course{
@@ -95,6 +95,7 @@
 }
 
 #select-dish .dish{
+	cursor: pointer;
 	overflow: hidden;
 	float: left;
 	margin: 40px 0 0 0;

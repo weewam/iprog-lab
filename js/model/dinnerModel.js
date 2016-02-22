@@ -7,7 +7,7 @@ var DinnerModel = function() {
 		observers.push(observer);
 	};
 
-	var notifyObservers = function(obj)  {
+	this.notifyObservers = function(obj)  {
 		for(var i = 0; i < observers.length; i++) {
 			observers[i].update(obj);
 		}	
@@ -28,7 +28,7 @@ var DinnerModel = function() {
 	this.setNumberOfGuests = function(num) {
 		numberOfGuests = num;
 		
-		notifyObservers();
+		this.notifyObservers();
 	};
 
 	// should return 
@@ -36,7 +36,12 @@ var DinnerModel = function() {
 		return numberOfGuests; 
 	};
 
-	// should return 
+	//Update current dish 
+	this.setCurrentDish = function(dish) {
+		currentDish = dish;
+		this.notifyObservers();
+	};
+
 	this.getCurrentDish = function() {
 		return currentDish; 
 	};
@@ -45,7 +50,7 @@ var DinnerModel = function() {
 	this.setSearchString = function(string) {
 		if (string !== searchString) {
 			searchString = string;
-			notifyObservers();
+			this.notifyObservers();
 		};
 	};
 
@@ -57,7 +62,7 @@ var DinnerModel = function() {
 	this.setCurrentFilter = function(filter) {
 		if (filter !== filterString) {
 			filterString = filter;
-			notifyObservers();
+			this.notifyObservers();
 		};
 	};
 
@@ -152,7 +157,7 @@ var DinnerModel = function() {
 		var dish = this.getDish(id);
 		dishesInMenu[dish.type] = id;
 
-		notifyObservers();
+		this.notifyObservers();
 	}
 
 	//Removes dish from menu

@@ -1,5 +1,4 @@
 var Dinner_preperationView = function ($container, model) {
-	
 	//Elements
 	this.$numberOfGuests = $container.find("#numberOfGuests");
 	this.$menu = $container.find("#row_preperation");

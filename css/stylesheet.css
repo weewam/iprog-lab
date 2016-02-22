@@ -16,11 +16,16 @@ body {
 	background-image: url(../images/cooking.jpg);
 }
 
-.page-header {
+#page-header {
+	position: absolute;
+	top: -80px;
+	width: 100%;
+	z-index: 1;
+
 	opacity: 0.9;
 	background-color: white;
-	padding-left: 15px;
-	padding-top: 3px;
+	padding-left: 20px;
+	padding-top: 0;
 	margin-top: 0%;
 	margin-bottom: 0%;
 	background: #212226;
@@ -28,6 +33,10 @@ body {
 	color: #fff;
 	font-size: 14px;
 	font-family: 'Quicksand', sans-serif;
+}
+
+.header-shown #page-header{
+	top: 0px;
 }
 
 #headerPic {
@@ -148,8 +157,7 @@ body {
 }
 
 .page-container {
-	margin-left: 280px;
-	max-width: calc(100% - 280px);
+	max-width: calc(100%);
 	position: relative;
 	color: #222222;
 	opacity: 1;
@@ -159,6 +167,15 @@ body {
 	-ms-transition: opacity .15s ease-in-out;
 	-o-transition: opacity .15s ease-in-out;
 	transition: opacity .15s ease-in-out;
+}
+
+.sidebar-shown .page-container{
+	margin-left: 280px;
+	max-width: calc(100% - 280px);
+}
+
+.header-shown .page-container{
+	padding-top: 80px;
 }
 
 .page-container.not-loaded {
@@ -176,6 +193,16 @@ body {
 	padding: 40px;
 	box-sizing: border-box;
 	font-size: 18px;
+
+	-webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.content-container *{
+	-webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
 }
 
 
@@ -206,7 +233,7 @@ button.rounded {
 
 #left-sidebar {
 	position: fixed;
-	left: 0px;
+	left: -280px;
 	top: 0px;
 	width: 280px;
 	height: 100%;
@@ -216,6 +243,20 @@ button.rounded {
 	color: #fff;
 	font-size: 14px;
 	font-family: 'Quicksand', sans-serif;
+
+	-webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+#left-sidebar *{
+	-webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.sidebar-shown #left-sidebar{
+	left: 0px;
 }
 
 #left-sidebar .logo{
@@ -292,6 +333,8 @@ button.rounded {
 
 #left-sidebar .course h4{
 	margin: 0;
+    font-size: 14px;
+    font-weight: 700;
 }
 
 #left-sidebar .course p{

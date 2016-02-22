@@ -1,10 +1,10 @@
-var DinnerOverviewController = function(view, model ) {
+var DinnerOverviewController = function(view, model, mainController) {
 	view.$goBack.click(function() {
-		document.location.href = "select_dish.html";
+		mainController.navigateTo("select-dish");
 	});
 	
 	view.$printRecipe.click(function() {
-		document.location.href = "dinner_preperation.html";
+		mainController.navigateTo("dinner-preperation");
 	});
 	
 };

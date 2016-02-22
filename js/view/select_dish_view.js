@@ -1,7 +1,5 @@
 var SelectDishView = function($container, model) {
-	$container.removeClass("not-loaded");
-
-	this.$dishes = $container.find("#dishes");
+	this.$dishesContainer = $container.find("#dishes");
 	this.$searchField = $container.find("input[name='search']");
 	this.$searchButton = $container.find("input[name='submit']");
 	this.$courseSelector = $container.find("input[name='course']");
@@ -19,10 +17,10 @@ var SelectDishView = function($container, model) {
 								<p>' + dish.description + '</p>\
 							</div>';
 
-			this.dishesString += '<div class="dish">' + dishImage + dishText + '</div>';
+			this.dishesString += '<div class="dish" data-id="' + dish.id + '">' + dishImage + dishText + '</div>';
 		};
 
-		this.$dishes.html(this.dishesString);
+		this.$dishesContainer.html(this.dishesString);
 	}
 
 	//Observer code
@@ -30,7 +28,7 @@ var SelectDishView = function($container, model) {
 	this.update = function(arg) {
 		this.load();
 	}
-
-	this.load();	
+	
+	this.load();
 };
 

@@ -1,5 +1,4 @@
 var Dinner_overviewView = function ($container, model) {
-	
 	//Elements
 	this.$numberOfGuests = $container.find("#numberOfGuests");
 	this.$totalAmountOfMenu = $container.find("#totalAmountOfMenu");

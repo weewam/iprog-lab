@@ -1,7 +1,6 @@
-var LeftSidebarController = function(view, model ) {
+var LeftSidebarController = function(view, model, mainController) {
 	view.$incrementButton.click(function() {
 		model.setNumberOfGuests(model.getNumberOfGuests() + 1);
-		console.log(model.getNumberOfGuests());
 	});
 
 	view.$decrementButton.click(function() {
@@ -9,6 +8,6 @@ var LeftSidebarController = function(view, model ) {
 	});
 	
 	view.$confirmMenuButton.click(function() {
-		document.location.href = "dinner_overview.html";
+		mainController.navigateTo("dinner-overview")
 	});
 }
