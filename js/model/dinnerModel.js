@@ -5,13 +5,13 @@ var DinnerModel = function() {
 
 	this.addObserver = function(observer) {
 		observers.push(observer);
-	}
+	};
 
 	var notifyObservers = function(obj)  {
 		for(var i = 0; i < observers.length; i++) {
 			observers[i].update(obj);
 		}	
-	}
+	};
 
 
 	//TODO Lab 2 implement the data structure that will hold number of guest

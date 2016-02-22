@@ -12,8 +12,10 @@ $(function() {
 	var selectDishView = new SelectDishView($("#select-dish"), model);
  	var selectDishController = new SelectDishController(selectDishView, model);
 
-	var exampleView = new ExampleView($("#exampleView"), model);
 	var dinner_overviewView = new Dinner_overviewView($("#dinnerOverview"), model);
+	var dinner_overviewController = new DinnerOverviewController(dinner_overviewView, model);
+	
 	var dinner_preperationView = new Dinner_preperationView($("#dinnerPreperation"), model);
+	var dinner_preperationController = new DinnerPreperationController(dinner_preperationView, model);
 
 });
