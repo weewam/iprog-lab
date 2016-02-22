@@ -10,4 +10,5 @@ var SelectDishController = function(view, model) {
 	view.$courseSelector.change(function() {
 		model.setCurrentFilter(view.$courseSelector.filter(":checked").val());
 	});
+	
 }

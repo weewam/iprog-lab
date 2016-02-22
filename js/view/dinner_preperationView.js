@@ -29,12 +29,10 @@ var Dinner_preperationView = function ($container, model) {
 			
 				this.$menuString += row + img + name + ingredients + "</table></div>" + preperation + "</div>";	
 				};
-			console.log("menu is not empty");
 		} else {
 			var row = "<div class='col-md-3'><h2>Dish Name</h2><p id='notChosenPrep'>No dish is chosen</p></div>";
 			var preperation = "<div class='col-md-5'><h3>Preperation</h3></div>";
 			this.$menuString += row + preperation;
-			console.log("menu is empty");
 		};
 		this.$menu.html(this.$menuString);
 	};

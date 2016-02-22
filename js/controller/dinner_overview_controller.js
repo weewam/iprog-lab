@@ -4,7 +4,7 @@ var DinnerOverviewController = function(view, model ) {
 	});
 	
 	view.$printRecipe.click(function() {
-		window.print();
+		document.location.href = "dinner_preperation.html";
 	});
 	
 };

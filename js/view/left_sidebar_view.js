@@ -4,6 +4,7 @@ var LeftSidebarView = function($container, model) {
 	this.$incrementButton = $container.find(".guests .increment");
 	this.$decrementButton = $container.find(".guests .decrement");
 	this.$totalCost = $container.find(".total-cost .cost");
+	this.$confirmMenuButton = $container.find("#confirmMenu");
 
 	//Data
 	this.load = function() {

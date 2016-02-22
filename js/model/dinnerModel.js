@@ -13,9 +13,6 @@ var DinnerModel = function() {
 		}	
 	};
 
-
-	//TODO Lab 2 implement the data structure that will hold number of guest
-	// and selected dinner options for dinner menu	
 	var currentDish = 100;
 	var numberOfGuests = 1;
 
@@ -36,12 +33,12 @@ var DinnerModel = function() {
 
 	// should return 
 	this.getNumberOfGuests = function() {
-		return numberOfGuests; //numberOfGuests;
+		return numberOfGuests; 
 	};
 
 	// should return 
 	this.getCurrentDish = function() {
-		return currentDish; //numberOfGuests;
+		return currentDish; 
 	};
 
 	//Update search string
