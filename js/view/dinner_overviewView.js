@@ -13,31 +13,18 @@ var Dinner_overviewView = function ($container, model) {
 	this.load = function() {
 		this.$menuString = "";
 		var menu = model.getFullMenu();
-		x = 0;
-		i = 0;
-		
-		while (x < 3) {
-			var dish = menu[i];
+
+		for (x in menu) {
+			var dish = menu[x];
+			$course = $container.find(".col-lg-3[data-course='" + dish.type + "']");
+			$courseName = $course.find("#nameDish");
+			$coursePrice = $course.find("#priceDish");
+			$courseImage = $course.find("#overImg");
 			
-			if (dish != null) {
-				if (dish.type == 'starter' && x == 0 || dish.type == 'main dish' && x == 1 || dish.type == 'dessert' && x == 2) {
-					var row = "<div class='col-lg-3'>"; 
-					var img = "<img src='images/" + dish.image + "' alt='Image of Food' id='overImg'>";                          
-					var name = "<h3 id='nameDish'>" + dish.name + "</h3>";					
-					var price = "<p id='priceDish'>" + model.getPriceOfDish(dish.id) + " SEK</p>";
-					this.$menuString += row + img + name + price + "</div>";
-					i++;
-				} else {
-					var row = "<div class='col-lg-3'><div id='notChosen' class='alert alert-info' role='alert'><p>No dish is chosen</p></div></div>";
-					this.$menuString += row;
-				}
-			} else {
-				var row = "<div class='col-lg-3'><div id='notChosen' class='alert alert-info' role='alert'><p>No dish is chosen</p></div></div>";
-				this.$menuString += row;
-			}
-			x++;
+			$courseName.html(dish.name);
+			$coursePrice.html(model.getPriceOfDish(dish.id));
+			$courseImage.attr("src", "images/" + dish.image);
 		};
-		this.$menu.html(this.$menuString);
 		
 	};
 	
@@ -45,6 +32,7 @@ var Dinner_overviewView = function ($container, model) {
 	model.addObserver(this);
 	this.update = function(arg) {
 		this.$numberOfGuests.html(model.getNumberOfGuests());
+		this.$totalAmountOfMenu.html(model.getTotalMenuPrice());
 		this.load();
 	};
 	
