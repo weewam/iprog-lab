@@ -1,13 +1,26 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
- 
+	//Observer code
+	var observers = [];
+
+	this.addObserver = function(observer) {
+		observers.push(observer);
+	}
+
+	var notifyObservers = function(obj)  {
+		for(var i = 0; i < observers.length; i++) {
+			observers[i].update(obj);
+		}	
+	}
+
+
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu	
 	var currentDish = 100;
-	var numberOfGuests = 0;
+	var numberOfGuests = 1;
 
 	var searchString = "";
-	var filter = "main dish";
+	var filterString = "main dish";
 
 	var dishesInMenu = {
 		"starter":   null, 
@@ -17,11 +30,13 @@ var DinnerModel = function() {
 
 	this.setNumberOfGuests = function(num) {
 		numberOfGuests = num;
+		
+		notifyObservers();
 	};
 
 	// should return 
 	this.getNumberOfGuests = function() {
-		return "5"; //numberOfGuests;
+		return numberOfGuests; //numberOfGuests;
 	};
 
 	// should return 
@@ -29,12 +44,28 @@ var DinnerModel = function() {
 		return currentDish; //numberOfGuests;
 	};
 
+	//Update search string
+	this.setSearchString = function(string) {
+		if (string !== searchString) {
+			searchString = string;
+			notifyObservers();
+		};
+	};
+
 	this.getSearchString = function() {
-		return searchString; //numberOfGuests;
+		return searchString;
+	};
+
+	//Update filter
+	this.setCurrentFilter = function(filter) {
+		if (filter !== filterString) {
+			filterString = filter;
+			notifyObservers();
+		};
 	};
 
 	this.getCurrentFilter = function() {
-		return filter; //numberOfGuests;
+		return filterString;
 	};
 
 	//Returns the dish that is on the menu for selected type 
@@ -123,6 +154,8 @@ var DinnerModel = function() {
 	this.addDishToMenu = function(id) {
 		var dish = this.getDish(id);
 		dishesInMenu[dish.type] = id;
+
+		notifyObservers();
 	}
 
 	//Removes dish from menu

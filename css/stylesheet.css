@@ -249,6 +249,7 @@ button.rounded {
 	color: #999999;
 	font-size: 18px;
 	font-weight: 400;
+	cursor: pointer;
 }
 
 #left-sidebar .menu .guests .decrement{
