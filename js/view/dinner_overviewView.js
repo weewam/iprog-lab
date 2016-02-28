@@ -16,11 +16,15 @@ var Dinner_overviewView = function ($container, model) {
 
 		for (x in menu) {
 			var dish = menu[x];
-			$course = $container.find(".col-lg-3[data-course='" + dish.type + "']");
+			$course = $container.find(".dish[data-course='" + dish.type + "']");
 			$courseName = $course.find("#nameDish");
 			$coursePrice = $course.find("#priceDish");
+			$courseFigure = $course.find("figure");
 			$courseImage = $course.find("#overImg");
+
+			$course.removeClass("none-chosen");
 			
+			$courseFigure.show();
 			$courseName.html(dish.name);
 			$coursePrice.html(model.getPriceOfDish(dish.id));
 			$courseImage.attr("src", "images/" + dish.image);

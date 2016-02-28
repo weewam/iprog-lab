@@ -15,19 +15,16 @@ var MainController = function(model) {
 		window.scrollTo(0, 0);
 
 		//Should sidebar be displayed
-		if (views[newView].sidebar) {
-
+		if (views[newView].sidebar)
 			this.showSidebar();
-		} else {
+		else
 			this.hideSidebar();
-		}
 
 		//Should header be displayed
-		if (views[newView].header) {
+		if (views[newView].header)
 			this.showHeader();
-		} else {
+		else
 			this.hideHeader();
-		}
 
 		currentView = newView;
 	};

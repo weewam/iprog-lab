@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dinner planner</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-
     <link href='https://fonts.googleapis.com/css?family=Quicksand:400,300,700' rel='stylesheet' type='text/css'>
     
     <!-- Own created CSS -->
@@ -36,17 +33,17 @@
           </div>
         </div>
 
-        <div class="course" data-course="starter">
+        <div class="course group" data-course="starter">
           <h4>Starter</h4>
           <p><span class="name">None chosen</span><span class="currency">kr</span><span class="cost">0</span></p>
         </div>
 
-        <div class="course" data-course="main dish">
+        <div class="course group" data-course="main dish">
           <h4>Main dish</h4>
           <p><span class="name">None chosen</span><span class="currency">kr</span><span class="cost">0</span></p>
         </div>
 
-        <div class="course" data-course="dessert">
+        <div class="course group" data-course="dessert">
           <h4>Dessert</h4>
           <p><span class="name">None chosen</span><span class="currency">kr</span><span class="cost">0</span></p>
         </div>
@@ -59,12 +56,13 @@
     </section>
     
     <div id="page-header">
-      <h3>
-        <a href="index.html">
-          <img src="images/resources/logo.png" id="headerPic">
-        </a> 
-        From the best chefs in the world directly into your kitchen
-      </h3>
+      <div class="content-container group">
+        <a href="main.html">
+          <img src="images/resources/logo.png">
+        </a>
+
+        <h3>From the best chefs in the world directly into your kitchen</h3>
+      </div>
     </div> 
 
     <section id="select-dish" class="page-container">
@@ -138,14 +136,12 @@
       <button class="back button rounded">back</button>
 
       <figure class="dish">
+        <h1 class="name"></h1>
         <img>
       </figure>
 
       <div class="content-container">
-        <header class="group">
-          <h1 class="name"></h1>
-          <button class="add-dish rounded button">+</button>
-        </header>
+        <button class="add-dish rounded button">+</button>
 
         <p class="description"></p>
 
@@ -156,62 +152,75 @@
     </section>
     
     <div id="dinnerOverview" class="page-container">
-      
-      <div class="jumbotron" id="dinnerOverview_Jumbotron">
-          <div class="col-md-9">
-            <h3>My Dinner: <span id="numberOfGuests">0</span> people</h3>
-          </div>
-        <div class="col-md-1">
-          <button id="headerButton" class="btn btn-default">Go back and edit dinner</button>
+      <div class="subheader">
+        <div class="content-container group">
+          <h3>My Dinner: <span id="numberOfGuests">0</span> people</h3>
+          <button id="headerButton" class="rounded">Go back and edit dinner</button>
         </div>
       </div>
       
-      <div class="container">
-  
-        <div class="row">
-          <div id="row_overview">
-          	<div class="col-lg-3" data-course="starter">
-          		<img src="" alt="" id="overImg">
-          		<h3 id="nameDish"><span id="nameDish">Not chosen</span></h3>
-          		<p id="priceDishP"><span id="priceDish">0</span> SEK</p>
-          	</div>
-          	<div class="col-lg-3" data-course="main dish">
-          		<img src="" alt="" id="overImg">
-          		<h3 id="nameDish"><span id="nameDish">Not chosen</span></h3>
-          		<p id="priceDishP"><span id="priceDish">0</span> SEK</p>
-          	</div>
-          	<div class="col-lg-3" data-course="dessert">
-          		<img src="" alt="" id="overImg">
-          		<h3 id="nameDish"><span id="nameDish">Not chosen</span></h3>
-          		<p id="priceDishP"><span id="priceDish">0</span> SEK</p>
-          	</div>
+      <div class="dishes content-container group">
+        <div class="column">
+          <h2>Starter</h2>
+
+          <div class="dish none-chosen" data-course="starter">
+            <figure>
+              <img src="" alt="" id="overImg">
+            </figure>
+
+            <div class="info group">
+              <h4 id="nameDish">Not chosen</h4>
+              <p><span id="priceDish">0</span> SEK</p>
+            </div>
           </div>
-         
-          <div class="col-lg-3" id="dinnerOverview_row">
-            <p id="totalAmount">Total: <span id="totalAmountOfMenu"></span> SEK</p>
-          </div>        
         </div>
-        
-        <hr>
-        
-        <button id="printButton" type="button" class="btn btn-default" onclick="">
-          Print Full Recipe
-        </button>
+
+        <div class="column">
+          <h2>Main Dish</h2>
+
+          <div class="dish none-chosen" data-course="main dish">
+            <figure>
+              <img src="" alt="" id="overImg">
+            </figure>
+
+            <div class="info group">
+              <h4 id="nameDish">Not chosen</h4>
+              <p><span id="priceDish">0</span> SEK</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <h2>Dessert</h2>
+
+          <div class="dish none-chosen" data-course="dessert">
+            <figure>
+              <img src="" alt="" id="overImg">
+            </figure>
+
+            <div class="info group">
+              <h4 id="nameDish">Not chosen</h4>
+              <p><span id="priceDish">0</span> SEK</p>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <footer class="content-container group">
+        <button id="printButton" class="rounded">Print Full Recipe</button>
+        <p id="totalAmount">Total: <span id="totalAmountOfMenu"></span> SEK</p>
+      </footer>
     </div>
     
     <div id="dinnerPreperation" class="page-container">
-      <div class="jumbotron" id="dinnerOverview_Jumbotron">
-          <div class="col-md-9">
-            <h3>My Dinner: <span id="numberOfGuests">0</span> people</h3>
-          </div>
-        <div class="col-md-1">
-          <button id="headerButton" class="btn btn-default">Go back and edit dinner</button>
+      <div class="subheader">
+        <div class="content-container group">
+          <h3>My Dinner: <span id="numberOfGuests">0</span> people</h3>
+          <button id="headerButton" class="rounded">Go back and edit dinner</button>
         </div>
       </div>
       
-      <div class="container">       
-        <div id="row_preperation"></div>
+      <div class="dishes content-container">
       </div>
     </div>
 	

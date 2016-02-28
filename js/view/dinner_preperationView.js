@@ -1,7 +1,7 @@
 var Dinner_preperationView = function ($container, model) {
 	//Elements
 	this.$numberOfGuests = $container.find("#numberOfGuests");
-	this.$menu = $container.find("#row_preperation");
+	this.$menu = $container.find(".dishes");
 	this.$goBack = $container.find("#headerButton");
 	
 	//Data
@@ -14,25 +14,24 @@ var Dinner_preperationView = function ($container, model) {
 		if (menu.length != 0) {
 			for (x in menu) {
 				var dish = menu[x];
-			
-				var row = "<div class='row'><div class='col-md-3'>";                       
-				var img = "<img src='images/" + dish.image + "' alt='Image of Food' id='prepImg'></div>";    		
-				var name = "<div class='col-md-4'><h2>" + dish.name + "</h2>";
+
+				var img = "<figure><img src='images/large/" + dish.image + "' alt='Image of Food' id='prepImg'><h2>" + dish.name + "</h2></figure>";    		
+
+				var preperation = "<p>" + dish.description + "</p>";
 		        
-		        var ingredients = "<table>";
+		        var ingredientList = "";
 		        for (i in model.getAllIngredientsOfDish(dish.id)) {     	
-		        	ingredients += "<tr><td>" + model.getAllIngredientsOfDish(dish.id)[i] + "</td></tr>";
+		        	ingredientList += "<li>" + model.getAllIngredientsOfDish(dish.id)[i] + "</li>";
 		        }
-		                          
-				var preperation = "<div class='col-md-5'><h3>Preperation</h3><p>" + dish.description + "</p></div>";	
+
+		        var ingredients = "<h3>Ingredients</h3><ul class='group'>" + ingredientList + "</ul>";
 			
-				this.$menuString += row + img + name + ingredients + "</table></div>" + preperation + "</div>";	
-				};
+				this.$menuString += "<div class='dine'>" + img + "<div class='content'>" + preperation + ingredients + "</div></div>";
+			};
 		} else {
-			var row = "<div class='col-md-3'><h2>Dish Name</h2><p id='notChosenPrep'>No dish is chosen</p></div>";
-			var preperation = "<div class='col-md-5'><h3>Preperation</h3></div>";
-			this.$menuString += row + preperation;
+			this.$menuString = "<h1 id='notChosenPrep'>No dishes is chosen</h1>";
 		};
+
 		this.$menu.html(this.$menuString);
 	};
 	
