@@ -2,19 +2,20 @@ var SelectDishController = function(view, model, mainController) {
 	view.$dishesContainer.on("click", ".dish", function() {
 		var dishID = $(this).data("id");
 
-		model.setCurrentDish(dishID);
-		mainController.navigateTo("specific-dish");
-	});
+		if (dishID !== model.getCurrentDish().id) {
+			model.getDish(dishID);
+		};
 
-	view.$searchField.keyup(function() {
-		model.setSearchString(view.$searchField.val());
+		mainController.navigateTo("specific-dish");
 	});
 
 	view.$searchButton.click(function() {
 		model.setSearchString(view.$searchField.val());
+		model.getAllDishes(model.getCurrentFilter(), model.getSearchString());
 	});
 
 	view.$courseSelector.change(function() {
 		model.setCurrentFilter(view.$courseSelector.filter(":checked").val());
+		model.getAllDishes(model.getCurrentFilter(), model.getSearchString());
 	});
 }

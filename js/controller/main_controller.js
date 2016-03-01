@@ -9,24 +9,34 @@ var MainController = function(model) {
 	};
 
 	this.navigateTo = function(newView) {
-		views[currentView].view.hide();
-		views[newView].view.show();
+		var that = this;
 
-		window.scrollTo(0, 0);
 
-		//Should sidebar be displayed
-		if (views[newView].sidebar)
-			this.showSidebar();
-		else
-			this.hideSidebar();
+		views[currentView].view.removeClass("shown");
+		setTimeout(function() {
+			views[currentView].view.hide();
+			views[newView].view.show();
 
-		//Should header be displayed
-		if (views[newView].header)
-			this.showHeader();
-		else
-			this.hideHeader();
+			setTimeout(function() {
+				//Should sidebar be displayed
+				if (views[newView].sidebar) {
+					that.showSidebar();
+				} else {
+					that.hideSidebar();
+				}
 
-		currentView = newView;
+				//Should header be displayed
+				if (views[newView].header) {
+					that.showHeader();
+				} else {
+					that.hideHeader();
+				}
+
+				views[newView].view.addClass("shown");
+				window.scrollTo(0, 0);
+				currentView = newView;
+			}, 50);
+		}, 200);
 	};
 
 	this.showHeader = function() {

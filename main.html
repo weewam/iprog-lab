@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="sidebar-shown">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,17 +33,17 @@
           </div>
         </div>
 
-        <div class="course group" data-course="starter">
+        <div class="course group" data-course="Appetizers">
           <h4>Starter</h4>
           <p><span class="name">None chosen</span><span class="currency">kr</span><span class="cost">0</span></p>
         </div>
 
-        <div class="course group" data-course="main dish">
+        <div class="course group" data-course="Main Dish">
           <h4>Main dish</h4>
           <p><span class="name">None chosen</span><span class="currency">kr</span><span class="cost">0</span></p>
         </div>
 
-        <div class="course group" data-course="dessert">
+        <div class="course group" data-course="Desserts">
           <h4>Dessert</h4>
           <p><span class="name">None chosen</span><span class="currency">kr</span><span class="cost">0</span></p>
         </div>
@@ -65,7 +65,7 @@
       </div>
     </div> 
 
-    <section id="select-dish" class="page-container">
+    <section id="select-dish" class="page-container shown">
       <div class="content-container">
         <header class="group">
           <h1>Select dish</h1>
@@ -79,12 +79,12 @@
 
           <div id="course-filter" class="group">
             <div class="course" data-course="starter">
-              <input type="radio" name="course" value="starter">
+              <input type="radio" name="course" value="appetizer">
               <p>Starter</p>
             </div>
 
             <div class="course" data-course="main dish">
-              <input type="radio" name="course" value="main dish" checked>
+              <input type="radio" name="course" value="main" checked>
               <p>Main Dish</p>
             </div>
 
@@ -95,59 +95,45 @@
           </div>
         </header>
 
-        <div id="dishes" class="group">
-          <div class="dish">
-            <figure>
-              <img src="images/bakedbrie.jpg">
-            </figure>
-
-            <div class="text">  
-              <h3>Baked Brie</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
-            </div>
-          </div>
-
-          <div class="dish">
-            <figure>
-              <img src="images/bakedbrie.jpg">
-            </figure>
-
-            <div class="text">  
-              <h3>Baked Brie</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
-            </div>
-          </div>
-
-          <div class="dish">
-            <figure>
-              <img src="images/bakedbrie.jpg">
-            </figure>
-
-            <div class="text">  
-              <h3>Baked Brie</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
-            </div>
-          </div>
-        </div>
+        <div id="dishes" class="group"></div>
       </div>
     </section>
 
     <section id="specific-dish" class="page-container not-loaded">
-      <button class="back button rounded">back</button>
+      <div class="loading">
+        <div class="spinner">
+          <div class="double-bounce1"></div>
+          <div class="double-bounce2"></div>
+        </div>
 
-      <figure class="dish">
-        <h1 class="name"></h1>
-        <img>
-      </figure>
+        <span>Loading dish</span>
+      </div>
 
-      <div class="content-container">
-        <button class="add-dish rounded button">+</button>
+      <div class="error">
+        <span>Connection error</span>
+        <button class="back button rounded">Back to previous page</button>
+      </div>
 
-        <p class="description"></p>
+      <div class="page">
+        <button class="back button rounded">back</button>
 
-        <h2>Ingredients for <span class="number-of-guests">0</span> people</h2>
-        <table class="ingredients">
-        </table>
+        <figure class="dish">
+          <h1 class="name"></h1>
+          <img>
+        </figure>
+
+        <div class="content-container">
+          <button class="add-dish rounded button">+</button>
+
+          <p class="description"></p>
+
+          <h2>Instructions</h2>
+          <p class="instructions"></p>
+
+          <h2>Ingredients for <span class="number-of-guests">0</span> people</h2>
+          <table class="ingredients">
+          </table>
+        </div>
       </div>
     </section>
     
@@ -163,7 +149,7 @@
         <div class="column">
           <h2>Starter</h2>
 
-          <div class="dish none-chosen" data-course="starter">
+          <div class="dish none-chosen" data-course="Appetizers">
             <figure>
               <img src="" alt="" id="overImg">
             </figure>
@@ -178,7 +164,7 @@
         <div class="column">
           <h2>Main Dish</h2>
 
-          <div class="dish none-chosen" data-course="main dish">
+          <div class="dish none-chosen" data-course="Main Dish">
             <figure>
               <img src="" alt="" id="overImg">
             </figure>
@@ -193,7 +179,7 @@
         <div class="column">
           <h2>Dessert</h2>
 
-          <div class="dish none-chosen" data-course="dessert">
+          <div class="dish none-chosen" data-course="Desserts">
             <figure>
               <img src="" alt="" id="overImg">
             </figure>

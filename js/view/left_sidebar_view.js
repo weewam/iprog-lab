@@ -6,29 +6,46 @@ var LeftSidebarView = function($container, model) {
 	this.$totalCost = $container.find(".total-cost .cost");
 	this.$confirmMenuButton = $container.find("#confirmMenu");
 
-	//Data
-	this.load = function() {
-		var menu = model.getFullMenu();
+	//Dish has been added to the menu.
+	this.addDish = function(dish) {
+		var	$courseName = $container.find(".course[data-course='" + dish.category + "'] .name");
+		$courseName.html(dish.name);
+
+		this.updateCost();
+	}
+
+	//Cost has been updated in some way.
+	this.updateCost = function() {
+		var menu = model.getFullMenu(),
+			totalCost = 0;
 
 		for (x in menu) {
 			var dish = menu[x],
-				$course = $container.find(".course[data-course='" + dish.type + "']"),
-				$courseName = $course.find(".name"),
-				$courseCost = $course.find(".cost");
+				cost = model.getPriceOfDish(dish);
 
-			$courseName.html(dish.name);
-			$courseCost.html(model.getPriceOfDish(dish.id));
-		}
+			var $courseCost = $container.find(".course[data-course='" + dish.category + "'] .cost");
+			$courseCost.html(cost);
 
-		this.$numberOfGuests.val(model.getNumberOfGuests());
-		this.$totalCost.html(model.getTotalMenuPrice());
+			totalCost += cost;
+		};
+
+		this.$totalCost.html(totalCost);
 	}
 
 	//Observer
 	model.addObserver(this);
-	this.update = function(arg) {
-		this.load();
+	this.update = function(type, data) {
+		if (type === "changed-number-of-guests") {
+			this.$numberOfGuests.val(data);
+			this.updateCost();
+		}
+
+		if (type === "added-dish-to-menu") {
+			this.addDish(data);
+		};
 	}
 
-	this.load();
+	//Initial load
+	this.$numberOfGuests.val(model.getNumberOfGuests());
+	this.$totalCost.html(model.getPriceofMenu());
 };

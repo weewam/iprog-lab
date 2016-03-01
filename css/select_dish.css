@@ -3,6 +3,43 @@
 	min-height: 100%;
 }
 
+/* Loading */
+#select-dish .loading {
+	margin-top: 100px;
+}
+
+#select-dish .loading .spinner {
+	width: 60px;
+	height: 60px;
+
+	position: relative;
+	margin: 0 auto;
+}
+
+#select-dish .loading span {
+	font-size: 2em;
+}
+
+/* Error */
+#select-dish .error {
+	margin-top: 100px;
+}
+
+#select-dish .error span {
+	display: block;
+	font-size: 1.5em;
+	font-weight: 300;
+	text-align: center;
+}
+
+#select-dish .error p {
+	color: #737480;
+	display: block;
+	text-align: center;
+	margin: 20px 0 0;
+}
+
+/* Page */
 #select-dish header{
 	margin: 40px 0 0;
 	position: relative;
@@ -137,10 +174,11 @@
 }
 
 #select-dish .dish h3{
-	font-size: 17px;
-	line-height: 1em;
-	text-align: center;
-	margin: 10px auto 20px;
+    font-size: 16px;
+    line-height: 1.5em;
+    text-align: center;
+    margin: 10px auto;
+    height: 4.5em;
 }
 
 #select-dish .dish p{

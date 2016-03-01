@@ -1,6 +1,6 @@
 var SpecificDishController = function(view, model, mainController) {
 	view.$addDish.click(function() {
-		model.addDishToMenu(model.getCurrentDish());
+		model.addCurrentDishToMenu();
 	});
 
 	view.$backButton.click(function() {

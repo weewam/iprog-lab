@@ -7,50 +7,48 @@ var DinnerModel = function() {
 		observers.push(observer);
 	};
 
-	this.notifyObservers = function(obj)  {
+	this.notifyObservers = function(type, data)  {
 		for(var i = 0; i < observers.length; i++) {
-			observers[i].update(obj);
+			observers[i].update(type, data);
 		}	
 	};
 
-	var currentDish = 100;
 	var numberOfGuests = 1;
 
 	var searchString = "";
-	var filterString = "main dish";
+	var filterString = "main";
 
 	var dishesInMenu = {
-		"starter":   null, 
-		"main dish": null, 
-		"dessert":   null
+		"Appetizers": null, 
+		"Main Dish": null, 
+		"Desserts": null
 	};
 
+	var currentDish = {
+		'id':100,
+		'name':'',
+		'type':'',
+		'image':'',
+		'description':'',
+		'ingredients':[]
+	};
+
+	//Update number of guests
 	this.setNumberOfGuests = function(num) {
 		numberOfGuests = num;
-		
-		this.notifyObservers();
+		this.notifyObservers("changed-number-of-guests", numberOfGuests);
 	};
 
-	// should return 
 	this.getNumberOfGuests = function() {
 		return numberOfGuests; 
 	};
 
-	//Update current dish 
-	this.setCurrentDish = function(dish) {
-		currentDish = dish;
-		this.notifyObservers();
-	};
 
-	this.getCurrentDish = function() {
-		return currentDish; 
-	};
 
 	//Update search string
 	this.setSearchString = function(string) {
 		if (string !== searchString) {
 			searchString = string;
-			this.notifyObservers();
 		};
 	};
 
@@ -58,11 +56,12 @@ var DinnerModel = function() {
 		return searchString;
 	};
 
+
+
 	//Update filter
 	this.setCurrentFilter = function(filter) {
 		if (filter !== filterString) {
 			filterString = filter;
-			this.notifyObservers();
 		};
 	};
 
@@ -70,131 +69,190 @@ var DinnerModel = function() {
 		return filterString;
 	};
 
-	//Returns the dish that is on the menu for selected type 
+
+
+	//Gets dishes
+	//Gets current dish
+	this.getCurrentDish = function() {
+		return currentDish; 
+	};
+
+	//Returns the dish that is on the menu for selected type
 	this.getSelectedDish = function(type) {
-		var menu = getFullMenu();
-		var dish;
-		var x;
-		
-		if (menu === null)
-			return null;
-		
+		var menu = this.getFullMenu();
+
 		for (x in menu) {
-			if (getDish(menu[x]).type == type)
-				dish.push(getDish(menu[x]).name);
+			if (menu[x].category === type) {
+				return menu[x];
+			}
 		};
-		
-		return dish;
-	};
 
-	this.getPriceOfDish = function(id) {
-		if (this.getNumberOfGuests() == 0) {
-			return 0;
-		};
-			
-		var sum = 0;
-		
-		for (x in this.getDish(id).ingredients) {
-			sum += this.getDish(id).ingredients[x].price;
-		};
-		
-		return sum * this.getNumberOfGuests();
-	};
-
-	this.getAllIngredientsOfDish = function(id) {
-		var ingredients = [];
-		
-		for (x in this.getDish(id).ingredients) {
-			var ingredient = this.getDish(id).ingredients[x];
-			ingredients.push(ingredient.name + ": " + ingredient.quantity + " " + ingredient.unit);
-		};
-		return ingredients;
+		return null;
 	};
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		var menu = [];
-
+		var dishes = [];
+		
 		for (x in dishesInMenu) {
-			if (dishesInMenu[x] != null) {
-				var dish = this.getDish(dishesInMenu[x]);
-				menu.push(dish);
-			}
+			var dish = dishesInMenu[x];
+
+			if (dish !== null) {
+				dishes.push(dish);
+			};
 		};
 
-		return menu;
+		return dishes;
 	};
 
-	//Returns all ingredients for all the dishes on the menu.
-	this.getAllIngredients = function() {
+
+
+	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
+	//it is removed from the menu and the new one added.
+	this.addCurrentDishToMenu = function() {
+		dishesInMenu[currentDish.category] = this.getCurrentDish();
+		this.notifyObservers("added-dish-to-menu", this.getCurrentDish());
+	}
+
+
+	
+	//Price stuff
+	//Calculates the price by multiplying the quantity with the number of guests
+	this.getPriceOfDish = function(dish) {
+		if (this.getNumberOfGuests() == 0) {
+			return 0;
+		};
+
+		var sum = 0,
+			ingredients = dish.ingredients;
+
+		for (x in ingredients) {
+			var ingredient = ingredients[x]
+			sum += ingredient.Quantity;
+		};
+		
+		return Math.round(sum * this.getNumberOfGuests());
+	};
+
+	//Gets the price of the current dish
+	this.getPriceOfCurrentDish = function() {
+		return this.getPriceOfDish(this.getCurrentDish());
+	};
+
+	//Gets the price of a selected course(category)
+	this.getPriceOfSelectedDish = function(type) {
+		return this.getPriceOfDish(this.getSelectedDish(type));
+	};
+
+	//Gets the price of the entire menu
+	this.getPriceofMenu = function() {
+		var menu = this.getFullMenu(),
+			sum = 0;
+
+		for(x in menu) {
+			sum += this.getPriceOfDish(menu[x])
+		}
+
+		return sum;
+	}
+
+
+
+	//Ingredient stuff
+	//Gets the ingredients of a dish
+	this.getIngredientsOfDish = function(dish) {
+		ingredients = [];
+		
+		for (x in dish.ingredients) {
+			var ingredient = dish.ingredients[x];
+
+			var cost = Math.ceil(ingredient.Quantity) * this.getNumberOfGuests(),
+				amount = (ingredient.Unit === null) ? cost : cost + " " + ingredient.Unit;
+
+			ingredients.push({  name : ingredient.Name, amount : amount, cost : cost  });
+		};
+
+		return ingredients;
+	};
+
+	this.getIngredientsOfCurrentDish = function() {
+		return this.getIngredientsOfDish(this.getCurrentDish());
+	};
+
+	this.getIngredientsOfSelectedDish = function(type) {
+		return this.getIngredientsOfDish(this.getSelectedDish(type));
+	};
+
+	//Gets all ingredients for the dishes on the menu;
+	this.getIngredientsOfMenu = function() {
 		var menu = this.getFullMenu(),
 			ingredients = [];
 		
 		for (x in menu) {
 			var dish = menu[x];
-			Array.prototype.push.apply(ingredients, dish.ingredients)
+			ingredients.push(this.getIngredientsOfDish(dish));
 		};
 
 		return ingredients;
 	}
 
-	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
-	this.getTotalMenuPrice = function() {
-		var ingredients = this.getAllIngredients(),
-			sum = 0;
-
-		for(x in ingredients) {
-			var ingredient = ingredients[x]
-			sum += ingredient.price;
-		}
-
-		return sum * this.getNumberOfGuests();
-	}
-
-	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
-	//it is removed from the menu and the new one added.
-	this.addDishToMenu = function(id) {
-		var dish = this.getDish(id);
-		dishesInMenu[dish.type] = id;
-
-		this.notifyObservers();
-	}
-
-	//Removes dish from menu
-	this.removeDishFromMenu = function(id) {
-		var dish = getDish(id);
-		dishesInMenu[dish.type] = null;
-	}
-
+	//AJAX
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	this.getAllDishes = function (type,filter) {
-	  return $(dishes).filter(function(index,dish) {
-		var found = true;
-		if(filter){
-			found = false;
-			$.each(dish.ingredients,function(index,ingredient) {
-				if(ingredient.name.indexOf(filter)!=-1) {
-					found = true;
-				}
-			});
-			if(dish.name.indexOf(filter) != -1)
-			{
-				found = true;
+	this.getAllDishes = function (course, search) {
+		var that = this,
+			response = false;
+
+		that.notifyObservers("searching-for-dishes");
+
+		var searchString = (search === "") ? course : search + " " + course;
+
+		$.getJSON("http://api.bigoven.com/recipes", { api_key : "8vtk7KykflO5IzB96kb0mpot0sU40096", pg : 1, rpp : 10, any_kw : searchString }, function(data) {
+			response = true;
+
+			if (data.Results && data.Results.length > 0) {
+				that.notifyObservers("updated-all-dishes", data.Results);
+			} else {
+				that.notifyObservers("no-search-result", data.Results);
 			}
-		}
-	  	return dish.type == type && found;
-	  });	
+		});
+
+		setTimeout(function() {
+			if(!response) {
+				that.notifyObservers("connection-error");
+			}
+		}, 5000);
 	};
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
-	  for(key in dishes){
-			if(dishes[key].id == id) {
-				return dishes[key];
+		var that = this,
+			response = false;
+
+		that.notifyObservers("loading-new-dish");
+
+		$.getJSON("http://api.bigoven.com/recipe/" + id, { api_key : "r02x0R09O76JMCMc4nuM0PJXawUHpBUL" }, function(data) {
+			response = true;
+
+			currentDish = {
+				'id': data.RecipeID,
+				'name': data.Title,
+				'category': data.Category,
+				'image': data.ImageURL,
+				'description': data.Description,
+				'instructions' : data.Instructions,
+				'ingredients' : data.Ingredients
+			};
+
+			that.notifyObservers("updated-specific-dish", currentDish);
+		});
+
+		setTimeout(function() {
+			if(!response) {
+				that.notifyObservers("connection-error");
 			}
-		}
+		}, 5000);
 	};
 
 

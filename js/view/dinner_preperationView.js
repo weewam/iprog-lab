@@ -5,28 +5,24 @@ var Dinner_preperationView = function ($container, model) {
 	this.$goBack = $container.find("#headerButton");
 	
 	//Data
-	this.$numberOfGuests.html(model.getNumberOfGuests());
-	
 	this.load = function() {
 		this.$menuString = "";
 		var menu = model.getFullMenu();
-		
+
 		if (menu.length != 0) {
 			for (x in menu) {
-				var dish = menu[x];
+				var dish = menu[x],
+					ingredients = model.getIngredientsOfSelectedDish(dish.category);
 
-				var img = "<figure><img src='images/large/" + dish.image + "' alt='Image of Food' id='prepImg'><h2>" + dish.name + "</h2></figure>";    		
+				var img = "<figure><img src='" + dish.image + "' alt='Image of Food' id='prepImg'><h2>" + dish.name + "</h2></figure>",
+					preperation = "<p>" + dish.description + "</p>";
 
-				var preperation = "<p>" + dish.description + "</p>";
-		        
 		        var ingredientList = "";
-		        for (i in model.getAllIngredientsOfDish(dish.id)) {     	
-		        	ingredientList += "<li>" + model.getAllIngredientsOfDish(dish.id)[i] + "</li>";
+		        for (i in ingredients) {     	
+		        	ingredientList += "<li>" + ingredients[i].amount + " " + ingredients[i].name + "</li>";
 		        }
-
-		        var ingredients = "<h3>Ingredients</h3><ul class='group'>" + ingredientList + "</ul>";
 			
-				this.$menuString += "<div class='dine'>" + img + "<div class='content'>" + preperation + ingredients + "</div></div>";
+				this.$menuString += "<div class='dine'>" + img + "<div class='content'>" + preperation + "<h3>Ingredients</h3><ul class='group'>" + ingredientList + "</ul></div></div>";
 			};
 		} else {
 			this.$menuString = "<h1 id='notChosenPrep'>No dishes is chosen</h1>";
@@ -41,7 +37,7 @@ var Dinner_preperationView = function ($container, model) {
 		this.$numberOfGuests.html(model.getNumberOfGuests());
 		this.load();
 	};
-	
-	this.load();
+
+	this.$numberOfGuests.html(model.getNumberOfGuests());
 };
 

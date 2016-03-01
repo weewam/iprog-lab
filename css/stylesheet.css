@@ -107,17 +107,40 @@ button.rounded {
 
 /* Page container */
 .page-container {
-	display: none;
+	opacity: 0;
 	max-width: 100%;
+	height: 100%;
 	position: relative;
 	color: #222222;
-	opacity: 1;
 
-	-webkit-transition: opacity .15s ease-in-out;
-	-moz-transition: opacity .15s ease-in-out;
-	-ms-transition: opacity .15s ease-in-out;
-	-o-transition: opacity .15s ease-in-out;
-	transition: opacity .15s ease-in-out;
+	-webkit-transition: max-width 200ms linear,
+						opacity 200ms linear,
+						margin-left 200ms linear,
+						padding-top 200ms linear;
+
+	-moz-transition: max-width 200ms linear,
+					 opacity 200ms linear,
+					 margin-left 200ms linear,
+					 padding-top 200ms linear;
+
+	-ms-transition: max-width 200ms linear,
+					opacity 200ms linear,
+					margin-left 200ms linear,
+					padding-top 200ms linear;
+
+	-o-transition: max-width 200ms linear,
+				   opacity 200ms linear,
+				   margin-left 200ms linear,
+				   padding-top 200ms linear;
+
+	transition: max-width 200ms linear,
+				opacity 200ms linear,
+				margin-left 200ms linear,
+				padding-top 200ms linear;
+}
+
+.page-container.shown{
+	opacity: 1;
 }
 
 .sidebar-shown .page-container{
@@ -129,8 +152,101 @@ button.rounded {
 	padding-top: 90px;
 }
 
-.page-container.not-loaded {
+.page {
+	opacity: 1;
+
+	-webkit-transition: opacity .15s linear .15s;
+	-moz-transition: opacity .15s linear .15s;
+	-ms-transition: opacity .15s linear .15s;
+	-o-transition: opacity .15s linear .15s;
+	transition: opacity .15s linear .15s;
+}
+
+.show-error .page,
+.not-loaded .page {
 	opacity: 0;
+}
+
+/* Loading */
+.loading {
+	opacity: 0;
+
+	-webkit-transition: opacity .15s linear;
+	-moz-transition: opacity .15s linear;
+	-ms-transition: opacity .15s linear;
+	-o-transition: opacity .15s linear;
+	transition: opacity .15s linear;
+}
+
+.not-loaded .loading {
+	opacity: 1;
+}
+
+.loading span {
+	display: block;
+	color: #737480;
+	font-size: 3em;
+	font-weight: 300;
+	text-align: center;
+	margin: 20px 0 0;
+}
+
+.loading .spinner {
+	width: 80px;
+	height: 80px;
+
+	position: relative;
+	margin: 0 auto;
+}
+
+.loading .double-bounce1, 
+.loading .double-bounce2 {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background-color: #333;
+	opacity: 0.6;
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	-webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+	animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.loading .double-bounce2 {
+	-webkit-animation-delay: -1.0s;
+	animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-bounce {
+	0%, 100% { -webkit-transform: scale(0.0) }
+	50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+	0%, 100% { 
+	transform: scale(0.0);
+	-webkit-transform: scale(0.0);
+	} 50% { 
+	transform: scale(1.0);
+	-webkit-transform: scale(1.0);
+	}
+}
+
+/* Error */
+.error {
+	opacity: 0;
+
+	-webkit-transition: opacity .15s linear;
+	-moz-transition: opacity .15s linear;
+	-ms-transition: opacity .15s linear;
+	-o-transition: opacity .15s linear;
+	transition: opacity .15s linear;
+}
+
+.show-error .error {
+	opacity: 1;
 }
 
 /* Content container */
@@ -178,16 +294,28 @@ button.rounded {
 	-webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
+
+	-webkit-transition: left 200ms linear;
+	-moz-transition: left 200ms linear;
+	-ms-transition: left 200ms linear;
+	-o-transition: left 200ms linear;
+	transition: left 200ms linear;
+}
+
+.sidebar-shown #left-sidebar{
+	-webkit-animation-delay: 200ms!important;
+	-moz-animation-delay: 200ms!important;
+	-ms-animation-delay: 200ms!important;
+	-o-animation-delay: 200ms!important;
+	animation-delay: 200ms!important;
+	
+	left: 0px;
 }
 
 #left-sidebar *{
 	-webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
-}
-
-.sidebar-shown #left-sidebar{
-	left: 0px;
 }
 
 #left-sidebar .logo{
@@ -328,7 +456,7 @@ button.rounded {
 #page-header {
 	position: absolute;
 	z-index: 1;
-	top: -80px;
+	top: -90px;
 	left: 0px;
 
 	width: 100%;
@@ -338,16 +466,26 @@ button.rounded {
 	color: #fff;
 	font-size: 14px;
 	font-family: 'Quicksand', sans-serif;
-	display: none;
+
+	-webkit-transition: top 200ms linear;
+	-moz-transition: top 200ms linear;
+	-ms-transition: top 200ms linear;
+	-o-transition: top 200ms linear;
+	transition: top 200ms linear;
+}
+
+.header-shown #page-header{
+	-webkit-animation-delay: 300ms!important;
+	-moz-animation-delay: 300ms!important;
+	-ms-animation-delay: 300ms!important;
+	-o-animation-delay: 300ms!important;
+	animation-delay: 300ms!important;
+
+	top: 0px;
 }
 
 #page-header .content-container{
 	padding: 0;
-}
-
-.header-shown #page-header{
-	top: 0px;
-	display: block;
 }
 
 #page-header a{
